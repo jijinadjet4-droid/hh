@@ -1,0 +1,1592 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الهلال الأحمر الجزائري - اللجنة الولائية</title>
+    <!-- Font Awesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-red: #e63946;
+            --primary-red-dark: #c1121f;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --dark-gray: #6c757d;
+            --black: #212529;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --border-radius: 12px;
+        }
+
+        body {
+            background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+            color: var(--black);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* ========== الهيدر والشعار ========== */
+        header {
+            background: linear-gradient(135deg, var(--primary-red), var(--primary-red-dark));
+            color: var(--white);
+            padding: 20px 0;
+            border-radius: 0 0 50px 50px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            font-size: 3.5rem;
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.2);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* تصميم الشعار: هلال + قلب (رمز الهلال الأحمر) */
+        .logo-icon .crescent {
+            font-size: 3rem;
+        }
+        
+        .logo-icon .heart {
+            font-size: 1.8rem;
+            position: absolute;
+            left: 25px;
+            top: 25px;
+            color: white;
+            text-shadow: 0 0 5px rgba(0,0,0,0.3);
+        }
+
+        .logo-text h1 {
+            font-size: 2rem;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .logo-text p {
+            font-size: 1rem;
+            opacity: 0.95;
+            font-size: 1.1rem;
+        }
+
+        /* ========== شريط التنقل ========== */
+        .nav-bar {
+            background: var(--white);
+            padding: 15px 30px;
+            border-radius: 60px;
+            box-shadow: var(--shadow);
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--black);
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            min-width: 80px;
+            cursor: pointer;
+        }
+
+        .nav-item i {
+            font-size: 1.8rem;
+            color: var(--primary-red);
+            margin-bottom: 5px;
+        }
+
+        .nav-item span {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .nav-item:hover {
+            background: var(--primary-red);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .nav-item:hover i {
+            color: var(--white);
+        }
+
+        .nav-item.active {
+            background: var(--primary-red);
+            color: var(--white);
+        }
+
+        .nav-item.active i {
+            color: var(--white);
+        }
+
+        /* باقي التنسيقات مثل ما هي */
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1.1rem;
+            margin: 5px;
+        }
+
+        .btn-primary {
+            background-color: var(--white);
+            color: var(--primary-red);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--light-gray);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-red {
+            background-color: var(--primary-red);
+            color: var(--white);
+        }
+
+        .btn-red:hover {
+            background-color: var(--primary-red-dark);
+            transform: translateY(-3px);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-card i {
+            font-size: 3rem;
+            color: var(--primary-red);
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--black);
+        }
+
+        .feature-card p {
+            color: var(--dark-gray);
+        }
+
+        .about-section {
+            background: var(--white);
+            padding: 60px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin: 40px 0;
+        }
+
+        .about-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-red);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .about-section h2:after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--primary-red);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px;
+            background: var(--light-gray);
+            border-radius: var(--border-radius);
+        }
+
+        .stat-item i {
+            font-size: 2.5rem;
+            color: var(--primary-red);
+            margin-bottom: 15px;
+        }
+
+        .stat-item .number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-red);
+        }
+
+        .news-section {
+            padding: 40px 0;
+        }
+
+        .news-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-red);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .news-section h2:after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--primary-red);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .news-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .news-image {
+            height: 200px;
+            background: linear-gradient(45deg, #f3f3f3, #e9ecef);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .news-image i {
+            font-size: 4rem;
+            color: var(--primary-red);
+            opacity: 0.7;
+        }
+
+        .news-date {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--primary-red);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .news-content {
+            padding: 25px;
+        }
+
+        .news-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--black);
+        }
+
+        .news-content p {
+            color: var(--dark-gray);
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            color: var(--primary-red);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .read-more i {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .read-more:hover i {
+            transform: translateX(-5px);
+        }
+
+        .gallery {
+            margin: 60px 0;
+        }
+
+        .gallery h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary-red);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .gallery h2:after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--primary-red);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            aspect-ratio: 16/9;
+            background: linear-gradient(45deg, #f3f3f3, #ffffff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-item i {
+            font-size: 4rem;
+            color: var(--primary-red);
+            opacity: 0.7;
+        }
+
+        .gallery-item span {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(230, 57, 70, 0.9);
+            color: white;
+            padding: 12px;
+            text-align: center;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            font-weight: 500;
+        }
+
+        .gallery-item:hover span {
+            transform: translateY(0);
+        }
+
+        .form-section {
+            background: var(--white);
+            padding: 50px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin: 60px 0;
+        }
+
+        .form-section h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary-red);
+            margin-bottom: 40px;
+        }
+
+        .registration-form {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        label i {
+            color: var(--primary-red);
+            margin-left: 5px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background-color: var(--light-gray);
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-red);
+            background-color: var(--white);
+            box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.1);
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 30px;
+            margin-top: 10px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .radio-option input[type="radio"] {
+            width: auto;
+            margin-left: 5px;
+        }
+
+        .radio-option label {
+            margin-bottom: 0;
+            font-weight: normal;
+        }
+
+        .experience-details {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .experience-details.show {
+            display: block;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            font-size: 1.2rem;
+            background: linear-gradient(135deg, var(--primary-red), var(--primary-red-dark));
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(230, 57, 70, 0.3);
+        }
+
+        .confirmation-section {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .confirmation-card {
+            background: var(--white);
+            padding: 60px 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .success-icon {
+            font-size: 6rem;
+            color: #28a745;
+            margin-bottom: 30px;
+            animation: scaleIn 0.5s ease;
+        }
+
+        @keyframes scaleIn {
+            0% { transform: scale(0); }
+            100% { transform: scale(1); }
+        }
+
+        .confirmation-card h1 {
+            font-size: 2.5rem;
+            color: var(--black);
+            margin-bottom: 20px;
+        }
+
+        .confirmation-card p {
+            font-size: 1.2rem;
+            color: var(--dark-gray);
+            margin-bottom: 30px;
+        }
+
+        .social-links {
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--light-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-red);
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: var(--primary-red);
+            color: var(--white);
+            transform: translateY(-5px);
+        }
+
+        footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 40px 0;
+            margin-top: 60px;
+            border-radius: 50px 50px 0 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-section h3 {
+            color: var(--primary-red);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #adb5bd;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-red);
+        }
+
+        .footer-section i {
+            margin-left: 10px;
+            color: var(--primary-red);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid #495057;
+            color: #adb5bd;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active-page {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo-container {
+                flex-direction: column;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-group.full-width {
+                grid-column: span 1;
+            }
+            
+            .form-section {
+                padding: 30px 20px;
+            }
+            
+            .radio-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .confirmation-card {
+                padding: 40px 20px;
+            }
+            
+            .nav-bar {
+                border-radius: 30px;
+                padding: 10px;
+            }
+            
+            .nav-item {
+                min-width: 60px;
+                padding: 8px 12px;
+            }
+            
+            .nav-item i {
+                font-size: 1.5rem;
+            }
+            
+            .nav-item span {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- الهيدر مع الشعار الصحيح -->
+     <!-- الهيدر مع الشعار الصحيح -->
+<header>
+    <div class="container">
+        <div class="header-content">
+            <div class="logo-container">
+               <div class="logo-icon">
+    <img src=https://github.com/jijinadjet4-droid/hh/raw/main/photo.jpg" alt="شعار الهلال الأحمر الجزائري" 
+         style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover;">
+</div>
+                <div class="logo-text">
+                    <h1>الهلال الأحمر الجزائري</h1>
+                    <p>اللجنة المحلية بريزينة</p>
+                </div>
+            </div>
+            <a href="#" class="btn btn-primary" onclick="showPage('registration'); return false;">
+                <i class="fas fa-hand-holding-heart"></i> انخرط الآن
+            </a>
+        </div>
+
+
+            <!-- الأيقونات الرئيسية -->
+            <div class="nav-bar">
+                <div class="nav-item active" onclick="showPage('home')" id="nav-home">
+                    <i class="fas fa-home"></i>
+                    <span>الرئيسية</span>
+                </div>
+                <div class="nav-item" onclick="showPage('about')" id="nav-about">
+                    <i class="fas fa-info-circle"></i>
+                    <span>تعريف</span>
+                </div>
+                <div class="nav-item" onclick="showPage('news')" id="nav-news">
+                    <i class="fas fa-newspaper"></i>
+                    <span>الأخبار</span>
+                </div>
+                <div class="nav-item" onclick="showPage('registration')" id="nav-registration">
+                    <i class="fas fa-pen"></i>
+                    <span>تسجيل</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- الصفحة الرئيسية -->
+        <div id="home-page" class="page active-page">
+            <section class="features">
+                <div class="feature-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>العمل الإنساني</h3>
+                    <p>نسعى لتقديم المساعدة والدعم لكل محتاج، ونشر ثقافة التضامن والتآزر بين أفراد المجتمع.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-users"></i>
+                    <h3>التطوع</h3>
+                    <p>انضم إلى عائلة المتطوعين واكتسب مهارات جديدة، وكون صداقات، واخدم مجتمعك.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>التكوين</h3>
+                    <p>نقدم دورات تكوينية في الإسعافات الأولية والإغاثة لتمكين متطوعينا.</p>
+                </div>
+            </section>
+
+            <section class="about-section">
+                <h2>من نحن</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>الهلال الأحمر الجزائري جمعية إنسانية تطوعية تأسست سنة 1956، تهدف إلى تقديم المساعدة والدعم للفئات المحتاجة والمساهمة في التنمية المجتمعية، خاصة في المجالات الصحية والاجتماعية والإغاثية.</p>
+                        <p>تعمل اللجنة الولائية على تجسيد أهداف الجمعية على المستوى المحلي، من خلال تنظيم حملات التضامن، القوافل الطبية، دورات التكوين في الإسعافات الأولية، والمشاركة في الجهود الوطنية للتنمية.</p>
+                        <a href="#" class="btn btn-red" onclick="showPage('about'); return false;">اقرأ المزيد</a>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <div class="number">1956</div>
+                            <p>سنة التأسيس</p>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-hand-holding-heart"></i>
+                            <div class="number">1000+</div>
+                            <p>متطوع</p>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-ambulance"></i>
+                            <div class="number">50+</div>
+                            <p>قافلة طبية</p>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-users"></i>
+                            <div class="number">5000+</div>
+                            <p>مستفيد</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="gallery">
+                <h2>أنشطتنا الميدانية</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <i class="fas fa-camera-retro"></i>
+                        <span>قافلة طبية إلى المناطق النائية</span>
+                    </div>
+                    <div class="gallery-item">
+                        <i class="fas fa-camera-retro"></i>
+                        <span>دورة تكوين في الإسعافات الأولية</span>
+                    </div>
+                    <div class="gallery-item">
+                        <i class="fas fa-camera-retro"></i>
+                        <span>حملة تبرع بالدم</span>
+                    </div>
+                    <div class="gallery-item">
+                        <i class="fas fa-camera-retro"></i>
+                        <span>إفطار صائم في رمضان</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+<!-- صفحة التعريف المطورة - ستيل متطور -->
+<div id="about-page" class="page">
+    <!-- قسم البطل المتحرك (Hero Section with Parallax) -->
+    <section style="position: relative; overflow: hidden; height: 500px; border-radius: var(--border-radius); margin-bottom: 40px;">
+        <!-- الخلفية المتحركة -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #e63946, #c1121f); animation: gradientMove 8s ease infinite; background-size: 200% 200%; z-index: 1;"></div>
+        
+        <!-- صور متحركة (أيقونات الهلال الأحمر) -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; opacity: 0.1;">
+            <i class="fas fa-crescent-moon" style="position: absolute; top: 10%; left: 10%; font-size: 8rem; color: white; animation: float 6s ease-in-out infinite;"></i>
+            <i class="fas fa-heart" style="position: absolute; bottom: 10%; right: 10%; font-size: 8rem; color: white; animation: float 7s ease-in-out infinite;"></i>
+            <i class="fas fa-ambulance" style="position: absolute; top: 20%; right: 20%; font-size: 5rem; color: white; animation: float 5s ease-in-out infinite;"></i>
+            <i class="fas fa-hand-holding-heart" style="position: absolute; bottom: 20%; left: 20%; font-size: 5rem; color: white; animation: float 8s ease-in-out infinite;"></i>
+        </div>
+
+        <!-- المحتوى -->
+        <div style="position: relative; z-index: 3; height: 100%; display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding: 20px;">
+            <div style="animation: fadeInUp 1.5s ease;">
+                <h1 style="font-size: 4rem; margin-bottom: 20px; text-shadow: 2px 2px 10px rgba(0,0,0,0.3);">الهلال الأحمر الجزائري</h1>
+                <p style="font-size: 1.8rem; max-width: 800px; margin: 0 auto; opacity: 0.95;">نحن هنا لنصنع الفرق.. يدٌ تمتدُّ بالخير لكل محتاج</p>
+                <div style="margin-top: 40px;">
+                    <span style="display: inline-block; width: 15px; height: 15px; background: white; border-radius: 50%; margin: 0 5px; animation: pulse 2s infinite;"></span>
+                    <span style="display: inline-block; width: 15px; height: 15px; background: white; border-radius: 50%; margin: 0 5px; animation: pulse 2s infinite 0.3s;"></span>
+                    <span style="display: inline-block; width: 15px; height: 15px; background: white; border-radius: 50%; margin: 0 5px; animation: pulse 2s infinite 0.6s;"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم من نحن مع بطاقات متحركة -->
+    <section class="container" style="margin: 80px auto;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;">
+            <div style="animation: slideInRight 1s ease;">
+                <h2 style="color: var(--primary-red); font-size: 2.8rem; margin-bottom: 30px; position: relative;">
+                    من نحن؟
+                    <span style="display: block; width: 100px; height: 4px; background: var(--primary-red); margin-top: 15px; border-radius: 2px; animation: expandWidth 1.5s ease;"></span>
+                </h2>
+                <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 20px;"><strong>الهلال الأحمر الجزائري</strong> جمعية إنسانية تطوعية تأسست في 11 ديسمبر 1956، خلال ثورة التحرير الجزائرية. تعترف بها الحكومة الجزائرية كجمعية إغاثة تطوعية مساعدة للسلطات العمومية في المجال الإنساني، وهي عضو في الحركة الدولية للصليب الأحمر والهلال الأحمر.</p>
+                <p style="font-size: 1.2rem; line-height: 1.8;">نعمل على تقديم المساعدة الإنسانية للمتضررين من الكوارث والنزاعات، وتعزيز قدرات المجتمعات المحلية، ونشر ثقافة التطوع والعمل الإنساني في جميع أنحاء الوطن.</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+                <div class="hover-card" style="background: linear-gradient(135deg, #fff5f5, white); border-radius: 20px; padding: 40px 20px; text-align: center; box-shadow: 0 10px 30px rgba(230, 57, 70, 0.1); transition: all 0.3s ease; animation: fadeIn 1s ease;">
+                    <i class="fas fa-hand-holding-heart" style="font-size: 3.5rem; color: var(--primary-red); margin-bottom: 15px; transition: transform 0.3s ease;"></i>
+                    <h3 style="color: var(--primary-red);">عمل إنساني</h3>
+                </div>
+                <div class="hover-card" style="background: linear-gradient(135deg, #fff5f5, white); border-radius: 20px; padding: 40px 20px; text-align: center; box-shadow: 0 10px 30px rgba(230, 57, 70, 0.1); transition: all 0.3s ease; animation: fadeIn 1s ease 0.2s;">
+                    <i class="fas fa-users" style="font-size: 3.5rem; color: var(--primary-red); margin-bottom: 15px; transition: transform 0.3s ease;"></i>
+                    <h3 style="color: var(--primary-red);">تطوع</h3>
+                </div>
+                <div class="hover-card" style="background: linear-gradient(135deg, #fff5f5, white); border-radius: 20px; padding: 40px 20px; text-align: center; box-shadow: 0 10px 30px rgba(230, 57, 70, 0.1); transition: all 0.3s ease; animation: fadeIn 1s ease 0.4s;">
+                    <i class="fas fa-ambulance" style="font-size: 3.5rem; color: var(--primary-red); margin-bottom: 15px; transition: transform 0.3s ease;"></i>
+                    <h3 style="color: var(--primary-red);">إسعاف</h3>
+                </div>
+                <div class="hover-card" style="background: linear-gradient(135deg, #fff5f5, white); border-radius: 20px; padding: 40px 20px; text-align: center; box-shadow: 0 10px 30px rgba(230, 57, 70, 0.1); transition: all 0.3s ease; animation: fadeIn 1s ease 0.6s;">
+                    <i class="fas fa-globe" style="font-size: 3.5rem; color: var(--primary-red); margin-bottom: 15px; transition: transform 0.3s ease;"></i>
+                    <h3 style="color: var(--primary-red);">عالمية</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المبادئ الأساسية مع بطاقات دوارة -->
+    <section style="background: linear-gradient(135deg, #f8f9fa, #ffffff); padding: 80px 0; margin: 60px 0;">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.8rem; color: var(--primary-red); margin-bottom: 60px;">المبادئ الأساسية</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+                <!-- بطاقة 1 -->
+                <div class="principle-card" style="background: white; border-radius: 30px; padding: 40px 20px; text-align: center; box-shadow: 0 15px 40px rgba(0,0,0,0.1); position: relative; overflow: hidden; transition: all 0.3s ease;">
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, #e63946, #c1121f);"></div>
+                    <i class="fas fa-heart" style="font-size: 3.5rem; color: var(--primary-red); margin-bottom: 20px; transition: all 0.3s ease;"></i>
+                    <h3 style="color: var(--primary-red); font-size: 1.8rem; margin-bottom: 15px;">الإنسانية</h3>
+                    <p style="color: var(--dark-gray);">تقديم المساعدة دون تمييز</p>
+                </div>
+                <!-- بطاقة 2 -->
+                <div class="principle-card" style="background: white; border-radius: 30px; padding: 40px 20px; text-align: center; box-shadow: 0 15px 40px rgba(0,0,0,0.1); position: relative; overflow: hidden; transition: all 0.3s ease;">
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, #e63946, #c1121f);"></div>
+                    <i class="fas fa-balance-scale" style="font-size: 3.5rem; color: var(--primary-red); margin-bottom: 20px; transition: all 0.3s ease;"></i>
+                    <h3 style="color: var(--primary-red); font-size: 1.8rem; margin-bottom: 15px;">عدم التحيز</h3>
+                    <p style="color: var(--dark-gray);">مساعدة الجميع بدون تفرقة</p>
+                </div>
+                <!-- بطاقة 3 -->
+                <div class="principle-card" style="background: white; border-radius: 30px; padding: 40px 20px; text-align: center; box-shadow: 0 15px 40px rgba(0,0,0,0.1); position: relative; overflow: hidden; transition: all 0.3s ease;">
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, #e63946, #c1121f);"></div>
+                    <i class="fas fa-hand-peace" style="font-size: 3.5rem; color: var(--primary-red); margin-bottom: 20px; transition: all 0.3s ease;"></i>
+                    <h3 style="color: var(--primary-red); font-size: 1.8rem; margin-bottom: 15px;">الحياد</h3>
+                    <p style="color: var(--dark-gray);">عدم الانحياز في النزاعات</p>
+                </div>
+                <!-- بطاقة 4 -->
+                <div class="principle-card" style="background: white; border-radius: 30px; padding: 40px 20px; text-align: center; box-shadow: 0 15px 40px rgba(0,0,0,0.1); position: relative; overflow: hidden; transition: all 0.3s ease;">
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, #e63946, #c1121f);"></div>
+                    <i class="fas fa-flag" style="font-size: 3.5rem; color: var(--primary-red); margin-bottom: 20px; transition: all 0.3s ease;"></i>
+                    <h3 style="color: var(--primary-red); font-size: 1.8rem; margin-bottom: 15px;">الاستقلال</h3>
+                    <p style="color: var(--dark-gray);">استقلالية العمل الإنساني</p>
+                </div>
+                <!-- بطاقة 5 -->
+                <div class="principle-card" style="background: white; border-radius: 30px; padding: 40px 20px; text-align: center; box-shadow: 0 15px 40px rgba(0,0,0,0.1); position: relative; overflow: hidden; transition: all 0.3s ease;">
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, #e63946, #c1121f);"></div>
+                    <i class="fas fa-hands-helping" style="font-size: 3.5rem; color: var(--primary-red); margin-bottom: 20px; transition: all 0.3s ease;"></i>
+                    <h3 style="color: var(--primary-red); font-size: 1.8rem; margin-bottom: 15px;">التطوع</h3>
+                    <p style="color: var(--dark-gray);">عمل قائم على روح التطوع</p>
+                </div>
+                <!-- بطاقة 6 -->
+                <div class="principle-card" style="background: white; border-radius: 30px; padding: 40px 20px; text-align: center; box-shadow: 0 15px 40px rgba(0,0,0,0.1); position: relative; overflow: hidden; transition: all 0.3s ease;">
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, #e63946, #c1121f);"></div>
+                    <i class="fas fa-unity" style="font-size: 3.5rem; color: var(--primary-red); margin-bottom: 20px; transition: all 0.3s ease;"></i>
+                    <h3 style="color: var(--primary-red); font-size: 1.8rem; margin-bottom: 15px;">الوحدة</h3>
+                    <p style="color: var(--dark-gray);">جمعية واحدة في كل بلد</p>
+                </div>
+                <!-- بطاقة 7 -->
+                <div class="principle-card" style="background: white; border-radius: 30px; padding: 40px 20px; text-align: center; box-shadow: 0 15px 40px rgba(0,0,0,0.1); position: relative; overflow: hidden; transition: all 0.3s ease;">
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, #e63946, #c1121f);"></div>
+                    <i class="fas fa-globe-africa" style="font-size: 3.5rem; color: var(--primary-red); margin-bottom: 20px; transition: all 0.3s ease;"></i>
+                    <h3 style="color: var(--primary-red); font-size: 1.8rem; margin-bottom: 15px;">العالمية</h3>
+                    <p style="color: var(--dark-gray);">حركة دولية تضم الجميع</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الإحصائيات مع أرقام متحركة -->
+    <section style="background: linear-gradient(135deg, #e63946, #c1121f); padding: 80px 0; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.1;">
+            <i class="fas fa-crescent-moon" style="position: absolute; top: 10%; left: 5%; font-size: 10rem; color: white; animation: rotate 20s linear infinite;"></i>
+            <i class="fas fa-heart" style="position: absolute; bottom: 10%; right: 5%; font-size: 10rem; color: white; animation: rotate 20s linear infinite reverse;"></i>
+        </div>
+        <div class="container" style="position: relative; z-index: 2;">
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; color: white;">
+                <div class="stat-item" style="animation: fadeInUp 1s ease;">
+                    <i class="fas fa-calendar-alt" style="font-size: 4rem; margin-bottom: 20px;"></i>
+                    <div class="counter" style="font-size: 3rem; font-weight: 700; margin-bottom: 10px;" data-target="1956">0</div>
+                    <p style="font-size: 1.3rem;">سنة التأسيس</p>
+                </div>
+                <div class="stat-item" style="animation: fadeInUp 1s ease 0.2s;">
+                    <i class="fas fa-map-marked-alt" style="font-size: 4rem; margin-bottom: 20px;"></i>
+                    <div class="counter" style="font-size: 3rem; font-weight: 700; margin-bottom: 10px;" data-target="58">0</div>
+                    <p style="font-size: 1.3rem;">لجنة ولائية</p>
+                </div>
+                <div class="stat-item" style="animation: fadeInUp 1s ease 0.4s;">
+                    <i class="fas fa-users" style="font-size: 4rem; margin-bottom: 20px;"></i>
+                    <div class="counter" style="font-size: 3rem; font-weight: 700; margin-bottom: 10px;" data-target="50000">0</div>
+                    <p style="font-size: 1.3rem;">متطوع</p>
+                </div>
+                <div class="stat-item" style="animation: fadeInUp 1s ease 0.6s;">
+                    <i class="fas fa-project-diagram" style="font-size: 4rem; margin-bottom: 20px;"></i>
+                    <div class="counter" style="font-size: 3rem; font-weight: 700; margin-bottom: 10px;" data-target="100">0</div>
+                    <p style="font-size: 1.3rem;">مشروع سنوياً</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم فرق العمل مع بطاقات ثلاثية الأبعاد -->
+    <section class="container" style="margin: 80px auto;">
+        <h2 style="text-align: center; font-size: 2.8rem; color: var(--primary-red); margin-bottom: 60px;">فرق العمل التطوعي</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px;">
+            <div class="team-card" style="background: white; border-radius: 30px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); transform-style: preserve-3d; transition: all 0.5s ease;">
+                <div style="height: 250px; background: linear-gradient(135deg, #fff5f5, #ffe5e5); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                    <i class="fas fa-heartbeat" style="font-size: 6rem; color: var(--primary-red); position: relative; z-index: 2; animation: heartbeat 2s infinite;"></i>
+                    <div style="position: absolute; width: 150%; height: 150%; background: linear-gradient(45deg, transparent 30%, rgba(230,57,70,0.1) 50%, transparent 70%); animation: shine 3s infinite;"></div>
+                </div>
+                <div style="padding: 30px;">
+                    <h3 style="color: var(--primary-red); font-size: 1.8rem; margin-bottom: 15px;">فريق الإسعافات الأولية</h3>
+                    <p style="color: var(--dark-gray); line-height: 1.8;">متطوعون مدربون على تقديم الإسعافات الأولية في الحالات الطارئة والتظاهرات الكبرى.</p>
+                </div>
+            </div>
+            <div class="team-card" style="background: white; border-radius: 30px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); transform-style: preserve-3d; transition: all 0.5s ease;">
+                <div style="height: 250px; background: linear-gradient(135deg, #fff5f5, #ffe5e5); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                    <i class="fas fa-ambulance" style="font-size: 6rem; color: var(--primary-red); position: relative; z-index: 2; animation: shake 3s infinite;"></i>
+                    <div style="position: absolute; width: 150%; height: 150%; background: linear-gradient(45deg, transparent 30%, rgba(230,57,70,0.1) 50%, transparent 70%); animation: shine 3s infinite 0.5s;"></div>
+                </div>
+                <div style="padding: 30px;">
+                    <h3 style="color: var(--primary-red); font-size: 1.8rem; margin-bottom: 15px;">فريق الإغاثة والكوارث</h3>
+                    <p style="color: var(--dark-gray); line-height: 1.8;">فرق مدربة على التدخل السريع في حالات الكوارث الطبيعية والطوارئ الكبرى.</p>
+                </div>
+            </div>
+            <div class="team-card" style="background: white; border-radius: 30px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); transform-style: preserve-3d; transition: all 0.5s ease;">
+                <div style="height: 250px; background: linear-gradient(135deg, #fff5f5, #ffe5e5); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                    <i class="fas fa-child" style="font-size: 6rem; color: var(--primary-red); position: relative; z-index: 2; animation: bounce 2s infinite;"></i>
+                    <div style="position: absolute; width: 150%; height: 150%; background: linear-gradient(45deg, transparent 30%, rgba(230,57,70,0.1) 50%, transparent 70%); animation: shine 3s infinite 1s;"></div>
+                </div>
+                <div style="padding: 30px;">
+                    <h3 style="color: var(--primary-red); font-size: 1.8rem; margin-bottom: 15px;">فريق دعم الأيتام</h3>
+                    <p style="color: var(--dark-gray); line-height: 1.8;">برامج خاصة لدعم ورعاية الأيتام وتأمين احتياجاتهم التعليمية والصحية.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم شركاء النجاح مع دوران -->
+    <section style="background: linear-gradient(135deg, #f8f9fa, white); padding: 80px 0;">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.8rem; color: var(--primary-red); margin-bottom: 60px;">شركاء النجاح</h2>
+            <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 50px;">
+                <div class="partner" style="width: 150px; height: 150px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 15px 30px rgba(0,0,0,0.1); transition: all 0.5s ease; animation: rotate 20s linear infinite;">
+                    <i class="fas fa-hospital" style="font-size: 4rem; color: var(--primary-red);"></i>
+                </div>
+                <div class="partner" style="width: 150px; height: 150px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 15px 30px rgba(0,0,0,0.1); transition: all 0.5s ease; animation: rotate 20s linear infinite reverse;">
+                    <i class="fas fa-shield-alt" style="font-size: 4rem; color: var(--primary-red);"></i>
+                </div>
+                <div class="partner" style="width: 150px; height: 150px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 15px 30px rgba(0,0,0,0.1); transition: all 0.5s ease; animation: rotate 20s linear infinite 2s;">
+                    <i class="fas fa-university" style="font-size: 4rem; color: var(--primary-red);"></i>
+                </div>
+                <div class="partner" style="width: 150px; height: 150px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 15px 30px rgba(0,0,0,0.1); transition: all 0.5s ease; animation: rotate 20s linear infinite 4s;">
+                    <i class="fas fa-mosque" style="font-size: 4rem; color: var(--primary-red);"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- زر الانضمام المتحرك -->
+    <div style="text-align: center; margin: 60px 0;">
+        <a href="#" class="btn btn-red" onclick="showPage('registration'); return false;" style="padding: 20px 60px; font-size: 1.8rem; position: relative; overflow: hidden; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(230,57,70,0.3);">
+            <span style="position: relative; z-index: 2;">انضم إلينا الآن</span>
+            <i class="fas fa-hand-holding-heart" style="margin-right: 10px; position: relative; z-index: 2;"></i>
+            <div style="position: absolute; top: 50%; left: 50%; width: 0; height: 0; background: rgba(255,255,255,0.2); border-radius: 50%; transform: translate(-50%, -50%); transition: all 0.5s ease;"></div>
+        </a>
+    </div>
+</div>
+
+<!-- إضافة الحركات (CSS Animations) -->
+<style>
+    /* حركات الخلفية */
+    @keyframes gradientMove {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    /* حركة الطفو */
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+    }
+
+    /* حركة الظهور */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* حركة التوسع */
+    @keyframes expandWidth {
+        from { width: 0; }
+        to { width: 100px; }
+    }
+
+    /* حركة النبض */
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.5); opacity: 0.5; }
+    }
+
+    /* حركة الدوران */
+    @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+
+    /* حركة القلب */
+    @keyframes heartbeat {
+        0%, 100% { transform: scale(1); }
+        25% { transform: scale(1.1); }
+        50% { transform: scale(1); }
+        75% { transform: scale(1.1); }
+    }
+
+    /* حركة الاهتزاز */
+    @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+        20%, 40%, 60%, 80% { transform: translateX(5px); }
+    }
+
+    /* حركة القفز */
+    @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-15px); }
+    }
+
+    /* حركة اللمعان */
+    @keyframes shine {
+        0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+        100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+    }
+
+    /* حركة الانزلاق */
+    @keyframes slideInRight {
+        from {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    /* حركة الظهور */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    /* تأثيرات hover للبطاقات */
+    .hover-card:hover {
+        transform: translateY(-15px) scale(1.05);
+        box-shadow: 0 20px 40px rgba(230, 57, 70, 0.2) !important;
+    }
+
+    .hover-card:hover i {
+        transform: scale(1.2) rotate(5deg);
+    }
+
+    .principle-card:hover {
+        transform: translateY(-15px) scale(1.05);
+        box-shadow: 0 25px 50px rgba(230, 57, 70, 0.2) !important;
+    }
+
+    .principle-card:hover i {
+        transform: rotate(360deg) scale(1.2);
+        transition: all 0.5s ease;
+    }
+
+    .principle-card:hover h3 {
+        color: #c1121f;
+    }
+
+    .team-card:hover {
+        transform: translateY(-20px) scale(1.03);
+        box-shadow: 0 30px 60px rgba(230, 57, 70, 0.2) !important;
+    }
+
+    .team-card:hover i {
+        animation: none;
+        transform: scale(1.2);
+    }
+
+    .partner:hover {
+        transform: scale(1.2) rotate(360deg) !important;
+        box-shadow: 0 20px 40px rgba(230, 57, 70, 0.3) !important;
+    }
+
+    .partner:hover i {
+        color: #c1121f;
+    }
+
+    .btn-red:hover {
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 20px 40px rgba(230, 57, 70, 0.4) !important;
+    }
+
+    .btn-red:hover div {
+        width: 300px;
+        height: 300px;
+    }
+
+    /* عداد الأرقام */
+    .counter {
+        animation: countUp 2s ease-out forwards;
+    }
+</style>
+
+<script>
+    // عداد الأرقام المتحرك
+    function animateNumbers() {
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200;
+
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const count = parseInt(counter.innerText);
+                const increment = Math.ceil(target / speed);
+
+                if (count < target) {
+                    counter.innerText = count + increment;
+                    setTimeout(updateCount, 10);
+                } else {
+                    counter.innerText = target.toLocaleString();
+                }
+            };
+
+            updateCount();
+        });
+    }
+
+    // تشغيل العداد عند ظهور الصفحة
+    setTimeout(animateNumbers, 1000);
+</script>
+
+    <!-- قسم الإحصائيات مع صور -->
+    <section style="background: linear-gradient(135deg, var(--primary-red), var(--primary-red-dark)); padding: 80px 0; margin: 60px 0;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; color: white;">
+                <div>
+                    <i class="fas fa-calendar-alt" style="font-size: 3.5rem; margin-bottom: 20px;"></i>
+                    <div style="font-size: 2.5rem; font-weight: 700; margin-bottom: 10px;">1956</div>
+                    <p style="font-size: 1.2rem;">سنة التأسيس</p>
+                </div>
+                <div>
+                    <i class="fas fa-map-marked-alt" style="font-size: 3.5rem; margin-bottom: 20px;"></i>
+                    <div style="font-size: 2.5rem; font-weight: 700; margin-bottom: 10px;">58</div>
+                    <p style="font-size: 1.2rem;">لجنة ولائية</p>
+                </div>
+                <div>
+                    <i class="fas fa-users" style="font-size: 3.5rem; margin-bottom: 20px;"></i>
+                    <div style="font-size: 2.5rem; font-weight: 700; margin-bottom: 10px;">50,000+</div>
+                    <p style="font-size: 1.2rem;">متطوع</p>
+                </div>
+                <div>
+                    <i class="fas fa-project-diagram" style="font-size: 3.5rem; margin-bottom: 20px;"></i>
+                    <div style="font-size: 2.5rem; font-weight: 700; margin-bottom: 10px;">100+</div>
+                    <p style="font-size: 1.2rem;">مشروع سنوياً</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم فرق العمل -->
+    <section class="container" style="margin: 80px auto;">
+        <h2 style="text-align: center; font-size: 2.5rem; color: var(--primary-red); margin-bottom: 50px;">فرق العمل التطوعي</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+            <div style="background: white; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow);">
+                <div style="height: 200px; background: linear-gradient(45deg, #f3f3f3, #e9ecef); display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-heartbeat" style="font-size: 5rem; color: var(--primary-red);"></i>
+                </div>
+                <div style="padding: 25px;">
+                    <h3 style="color: var(--primary-red); margin-bottom: 15px;">فريق الإسعافات الأولية</h3>
+                    <p style="color: var(--dark-gray);">متطوعون مدربون على تقديم الإسعافات الأولية في الحالات الطارئة والتظاهرات الكبرى.</p>
+                </div>
+            </div>
+            <div style="background: white; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow);">
+                <div style="height: 200px; background: linear-gradient(45deg, #f3f3f3, #e9ecef); display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-ambulance" style="font-size: 5rem; color: var(--primary-red);"></i>
+                </div>
+                <div style="padding: 25px;">
+                    <h3 style="color: var(--primary-red); margin-bottom: 15px;">فريق الإغاثة والكوارث</h3>
+                    <p style="color: var(--dark-gray);">فرق مدربة على التدخل السريع في حالات الكوارث الطبيعية والطوارئ الكبرى.</p>
+                </div>
+            </div>
+            <div style="background: white; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow);">
+                <div style="height: 200px; background: linear-gradient(45deg, #f3f3f3, #e9ecef); display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-child" style="font-size: 5rem; color: var(--primary-red);"></i>
+                </div>
+                <div style="padding: 25px;">
+                    <h3 style="color: var(--primary-red); margin-bottom: 15px;">فريق دعم الأيتام</h3>
+                    <p style="color: var(--dark-gray);">برامج خاصة لدعم ورعاية الأيتام وتأمين احتياجاتهم التعليمية والصحية.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم شركاء النجاح -->
+    <section style="background: var(--light-gray); padding: 60px 0; margin-top: 60px;">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem; color: var(--primary-red); margin-bottom: 50px;">شركاء النجاح</h2>
+            <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 40px;">
+                <div style="background: white; width: 120px; height: 120px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow);">
+                    <i class="fas fa-hospital" style="font-size: 3rem; color: var(--primary-red);"></i>
+                </div>
+                <div style="background: white; width: 120px; height: 120px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow);">
+                    <i class="fas fa-shield-alt" style="font-size: 3rem; color: var(--primary-red);"></i>
+                </div>
+                <div style="background: white; width: 120px; height: 120px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow);">
+                    <i class="fas fa-university" style="font-size: 3rem; color: var(--primary-red);"></i>
+                </div>
+                <div style="background: white; width: 120px; height: 120px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow);">
+                    <i class="fas fa-mosque" style="font-size: 3rem; color: var(--primary-red);"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- زر الانضمام -->
+    <div style="text-align: center; margin: 60px 0;">
+        <a href="#" class="btn btn-red" onclick="showPage('registration'); return false;" style="padding: 18px 50px; font-size: 1.5rem;">
+            <i class="fas fa-hand-holding-heart"></i> انضم إلينا الآن
+        </a>
+    </div>
+</div>
+     <!-- صفحة التسجيل -->
+<div id="registration-page" class="page">
+    <section class="form-section">
+        <h2><i class="fas fa-pen"></i> استمارة الانخراط</h2>
+        
+        <form class="registration-form" id="registrationForm">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> الاسم واللقب *</label>
+                    <input type="text" name="fullname" placeholder="أدخل اسمك الكامل" required>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-calendar"></i> تاريخ الميلاد *</label>
+                    <input type="date" name="birthdate" required>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-phone"></i> رقم الهاتف *</label>
+                    <input type="tel" name="phone" placeholder="05XX XX XX XX" required>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-map-marker-alt"></i> الولاية *</label>
+                    <select name="wilaya" required>
+                        <option value="">اختر ولايتك</option>
+                        <option value="01">أدرار</option>
+                        <option value="02">الشلف</option>
+                        <option value="03">الأغواط</option>
+                        <option value="04">أم البواقي</option>
+                        <option value="05">باتنة</option>
+                        <option value="06">بجاية</option>
+                        <option value="07">بسكرة</option>
+                        <option value="08">بشار</option>
+                        <option value="09">البليدة</option>
+                        <option value="10">البويرة</option>
+                        <option value="11">تمنراست</option>
+                        <option value="12">تبسة</option>
+                        <option value="13">تلمسان</option>
+                        <option value="14">تيارت</option>
+                        <option value="15">تيزي وزو</option>
+                        <option value="16">الجزائر</option>
+                    </select>
+                </div>
+
+                <div class="form-group full-width">
+                    <label><i class="fas fa-envelope"></i> البريد الإلكتروني *</label>
+                    <input type="email" name="email" placeholder="example@domain.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-graduation-cap"></i> المستوى الدراسي *</label>
+                    <select name="education" required>
+                        <option value="">اختر المستوى</option>
+                        <option value="متوسط">متوسط</option>
+                        <option value="ثانوي">ثانوي</option>
+                        <option value="جامعي">جامعي</option>
+                        <option value="دراسات عليا">دراسات عليا</option>
+                    </select>
+                </div>
+
+                <!-- ✅ حقل المؤهلات الخاصة (شهادات) - جديد -->
+                <div class="form-group full-width">
+                    <label><i class="fas fa-certificate"></i> المؤهلات الخاصة (شهادات)</label>
+                    <textarea name="qualifications" rows="3" placeholder="اذكر الشهادات التي تمتلكها (مثل: شهادة الإسعافات الأولية، شهادة في الإغاثة، شهادة في اللغة، شهادة في التمريض، وغيرها)"></textarea>
+                </div>
+
+                <div class="form-group full-width">
+                    <label><i class="fas fa-hand-holding-heart"></i> هل لديك خبرة سابقة في التطوع؟ *</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="experience" value="نعم" id="expYes" onchange="toggleExperience()">
+                            <label for="expYes">نعم</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="experience" value="لا" id="expNo" onchange="toggleExperience()" checked>
+                            <label for="expNo">لا</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group full-width experience-details" id="experienceDetails">
+                    <label><i class="fas fa-pencil-alt"></i> اذكر تفاصيل خبرتك السابقة</label>
+                    <textarea name="experience_details" rows="4" placeholder="أين تطوعت؟ مدة الخبرة؟ المهام التي قمت بها؟"></textarea>
+                </div>
+
+                <div class="form-group full-width">
+                    <label><i class="fas fa-tasks"></i> المجالات التي ترغب في التطوع بها *</label>
+                    <select name="fields" required>
+                        <option value="">اختر المجال</option>
+                        <option value="الاسعاف">الإسعافات الأولية</option>
+                        <option value="الاغاثة">الإغاثة والطوارئ</option>
+                        <option value="الايتام">دعم الأيتام</option>
+                        <option value="التنظيم">التنظيم والتسيير</option>
+                        <option value="الاتصال">الاتصال والإعلام</option>
+                        <option value="الصحة">الصحة والتوعية</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                <i class="fas fa-paper-plane"></i> إرسال الطلب
+            </button>
+        </form>
+    </section>
+</div>
+
+<!-- صفحة التأكيد -->
+<div id="confirmation-page" class="confirmation-section container" style="display: none;">
+    <div class="confirmation-card">
+        <div class="success-icon">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <h1>تم استلام طلبك بنجاح! 🎉</h1>
+        <p>شكراً جزيلاً لاهتمامك بالانضمام إلى عائلة الهلال الأحمر الجزائري - اللجنة الولائية. سنقوم بمراجعة طلبك والتواصل معك قريباً على رقم الهاتف أو البريد الإلكتروني الذي قدمته.</p>
+        
+        <div class="social-links">
+            <a href="#" class="social-icon" title="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon" title="انستغرام"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon" title="تويتر"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon" title="يوتيوب"><i class="fab fa-youtube"></i></a>
+        </div>
+
+        <p style="font-size: 1rem; margin-top: 20px;">تابعنا على وسائل التواصل الاجتماعي لمشاهدة أحدث أنشطتنا وفعالياتنا</p>
+        
+        <a href="#" class="btn btn-red" onclick="showHomePageAfterConfirmation()" style="margin-top: 20px;">
+            <i class="fas fa-home"></i> العودة للصفحة الرئيسية
+        </a>
+    </div>
+</div>
+
+    <!-- الفوتر -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>عن الهلال الأحمر</h3>
+                    <p>الهلال الأحمر الجزائري جمعية إنسانية تطوعية تهدف إلى تقديم المساعدة والدعم للفئات المحتاجة والمساهمة في التنمية المجتمعية.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <a href="#" onclick="showPage('home'); return false;"><i class="fas fa-chevron-left"></i> الرئيسية</a>
+                    <a href="#" onclick="showPage('about'); return false;"><i class="fas fa-chevron-left"></i> تعريف</a>
+                    <a href="#" onclick="showPage('news'); return false;"><i class="fas fa-chevron-left"></i> الأخبار</a>
+                    <a href="#" onclick="showPage('registration'); return false;"><i class="fas fa-chevron-left"></i> تسجيل</a>
+                </div>
+                <div class="footer-section">
+                    <h3>اتصل بنا</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> اللجنة الولائية، [اسم الولاية]، الجزائر</p>
+                    <p><i class="fas fa-phone"></i> 05XX XX XX XX</p>
+                    <p><i class="fas fa-envelope"></i> contact@crawilaya.dz</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2026 الهلال الأحمر الجزائري - اللجنة الولائية. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleExperience() {
+            const expYes = document.getElementById('expYes');
+            const expDetails = document.getElementById('experienceDetails');
+            
+            if (expYes && expYes.checked) {
+                expDetails.classList.add('show');
+            } else if (expDetails) {
+                expDetails.classList.remove('show');
+            }
+        }
+
+        function showPage(pageName) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active-page');
+            });
+            
+            document.getElementById(pageName + '-page').classList.add('active-page');
+            
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            document.getElementById('nav-' + pageName).classList.add('active');
+            
+            document.getElementById('confirmation-page').style.display = 'none';
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const phone = document.querySelector('input[name="phone"]').value;
+            const phoneRegex = /^(05|06|07)[0-9]{8}$/;
+            
+            if (!phoneRegex.test(phone)) {
+                alert('رقم الهاتف غير صحيح. يجب أن يبدأ بـ 05 أو 06 أو 07 ويتكون من 10 أرقام.');
+                return false;
+            }
+            
+            const email = document.querySelector('input[name="email"]').value;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (!emailRegex.test(email)) {
+                alert('البريد الإلكتروني غير صحيح.');
+                return false;
+            }
+            
+            console.log('تم إرسال النموذج');
+            
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active-page');
+            });
+            
+            document.getElementById('confirmation-page').style.display = 'flex';
+            
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        function showHomePageAfterConfirmation() {
+            document.getElementById('confirmation-page').style.display = 'none';
+            showPage('home');
+            
+            document.getElementById('registrationForm').reset();
+            document.getElementById('experienceDetails').classList.remove('show');
+        }
+
+        window.onload = function() {
+            showPage('home');
+        };
+    </script>
+</body>
+</html>
